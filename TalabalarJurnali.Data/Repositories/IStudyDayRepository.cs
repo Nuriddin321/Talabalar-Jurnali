@@ -7,5 +7,5 @@ public interface IStudyDayRepository
     Task<StudyDay> GetStudyDayByIdAsync(Guid groupId, Guid studyDayId);
     Task<StudyDay> CreateStudyDayAsync(Guid groupId, StudyDay studyDay);
     Task<StudyDay> UpdateStudyDayAsync(Guid groupId, StudyDay studyDay);
-    Task DeleteStudyDayAsync(Guid studyDayId);
+    Task DeleteStudyDayAsync(StudyDay studyDay);
 }
