@@ -6,26 +6,27 @@ namespace TalabalarJurnali.Data.Repositories
     {
         #region GroupCRUD
 
-        public Task CreateGroup(string groupName);
-        public Task<Group> GetGroupById(Guid groupId);
-        public Task UpdateGroup(Guid groupId, string groupName);
-        public Task DeleteGroup(Guid groupId);
+
+        Task<Group> CreateGroupAsync(string groupName);
+        Task<Group> GetGroupByIdAsync(Guid groupId);
+        Task<Group> UpdateGroupAsync(Guid groupId, string groupName);
+        Task DeleteGroupAsync(Guid groupId);
 
         #endregion
 
         #region TeacherCRD
 
-        public Task AddTeacherToGroup(Guid groupId, AppUser user);
-        public Task<List<AppUser>> GetGroupTeachers(Guid groupId);
-        public Task RemoveTeacherFromGroup(Guid groupId, AppUser user);
+        Task<AppUser> AddTeacherToGroupAsync(Guid groupId, AppUser user);
+        Task<List<AppUser>> GetGroupTeachersAsync(Guid groupId);
+        Task RemoveTeacherFromGroupAsync(Guid groupId, AppUser user);
 
         #endregion
 
         #region StudentsCRD
 
-        public Task AddStudentToGroup(Guid groupId, AppUser user);
-        public Task<List<AppUser>> GetGroupStudents(Guid groupId);
-        public Task RemoveStudentFromGroup(Guid groupId, AppUser user);
+         Task<AppUser> AddStudentToGroupAsync(Guid groupId, AppUser user);
+         Task<List<AppUser>> GetGroupStudentsAsync(Guid groupId);
+         Task RemoveStudentFromGroupAsync(Guid groupId, AppUser user);
 
         #endregion
             
