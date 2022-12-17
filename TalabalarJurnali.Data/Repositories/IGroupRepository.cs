@@ -5,13 +5,9 @@ namespace TalabalarJurnali.Data.Repositories
 {
     public interface IGroupRepository
     {
-        #region GroupCRUD
-            
         Task<Group> CreateGroupAsync(Group group);
-        Task<Group> GetGroupByIdAsync(Group group);
+        Task<Group> GetGroupByIdAsync(Guid groupId);
         Task<Group> UpdateGroupAsync(Group group);
         Task DeleteGroupAsync(Group group);
-
-        #endregion
     }
 }
