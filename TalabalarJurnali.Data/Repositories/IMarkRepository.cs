@@ -7,6 +7,6 @@ public interface IMarkRepository
     Task<Mark?> GetMarkByIdAsync(Guid markId);
     Task<List<Mark>?> GetMarksByUserIdAsync(Guid userId);
     Task<Mark> CreateMarkAsync(Mark markEntity);
-    Task<Mark> EditMarkAsync(Mark markEntity);
-    Task RemoveMarkAsync(Guid markId);
+    Task<Mark> UpdateMarkAsync(Mark markEntity);
+    Task DeleteMarkAsync(Mark mark);
 }

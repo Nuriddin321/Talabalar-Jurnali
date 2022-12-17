@@ -22,7 +22,7 @@ public class MarkRepository : IMarkRepository
         return entry.Entity;
     }
 
-    public async Task<Mark> EditMarkAsync(Mark markEntity)
+    public async Task<Mark> UpdateMarkAsync(Mark markEntity)
     {
         var entry = await _context.AddAsync(markEntity);
 
@@ -47,9 +47,9 @@ public class MarkRepository : IMarkRepository
         return usersMark;
     }
 
-    public async Task RemoveMarkAsync(Guid markId)
+    public async Task DeleteMarkAsync(Mark mark)
     {
-        _context.Remove(markId);
+        _context.Remove(mark);
 
         await _context.SaveChangesAsync();
     }
