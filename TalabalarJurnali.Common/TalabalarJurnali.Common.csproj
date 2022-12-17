@@ -17,5 +17,4 @@
   <ItemGroup>
     <ProjectReference Include="..\TalabalarJurnali.Data\TalabalarJurnali.Data.csproj" />
   </ItemGroup>
-
 </Project>
