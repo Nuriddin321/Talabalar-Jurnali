@@ -1,4 +1,6 @@
-﻿namespace TalabalarJurnali.Data.Repositories;
+﻿using TalabalarJurnali.Data.Entities;
+
+namespace TalabalarJurnali.Data.Repositories;
 
 public interface IStudentRepository
 {
