@@ -1,23 +1,23 @@
 ﻿namespace TalabalarJurnali.Data.Repositories;
 
-public class TeacherRepository : ITeacherRepository
+public class StudentRepository : IStudentRepository
 {
-    public Task CreateTeacherAsync(Teacher adminEntity)
+    public Task CreateStudentAsync(Student adminEntity)
     {
         throw new NotImplementedException();
     }
 
-    public Task EditTeacherAsync(Teacher adminEntity)
+    public Task EditStudentAsync(Student adminEntity)
     {
         throw new NotImplementedException();
     }
 
-    public Task<List<Teacher>> GetAllTeachersAsync()
+    public Task<List<Student>> GetAllStudentsAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Teacher> GetTeacherByIdAsync(Guid id)
+    public Task<Student> GetStudentByIdAsync(Guid id)
     {
         throw new NotImplementedException();
     }
@@ -27,7 +27,7 @@ public class TeacherRepository : ITeacherRepository
         throw new NotImplementedException();
     }
 
-    public Task RemoveTeacherAsync(Guid id)
+    public Task RemoveStudentAsync(Guid id)
     {
         throw new NotImplementedException();
     }

@@ -2,7 +2,7 @@
 
 public interface ITeacherRepository
 {
-    Task<List<Teacher>> GetAllTeacherAsync();
+    Task<List<Teacher>> GetAllTeachersAsync();
     Task<Teacher> GetTeacherByIdAsync(Guid id);
     Task CreateTeacherAsync(Teacher adminEntity);
     Task EditTeacherAsync(Teacher adminEntity);
