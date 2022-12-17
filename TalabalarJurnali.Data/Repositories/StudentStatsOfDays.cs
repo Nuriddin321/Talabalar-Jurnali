@@ -30,18 +30,18 @@ public class StudentStatsOfDays : IStudentStatsOfDays
         await _context.SaveChangesAsync();
     }
 
-    public async Task<StudentStatsOfDay?> GetStudentStatsOfDayByIdAsync(Guid studyDaysId, Guid studentStatsOfDayId)
+    public async Task<StudentStatsOfDay?> GetStudentStatsOfDayByStudyDayIdAsync(Guid studyDayId, Guid studentStatsOfDayId)
     {
-        var entry = await _context.StudentStatsOfDays.FirstOrDefaultAsync(s => s.Id == studentStatsOfDayId && s.StudyDayId == studyDaysId);
+        var entity = await _context.StudentStatsOfDays.FirstOrDefaultAsync(s => s.Id == studentStatsOfDayId && s.StudyDayId == studyDayId);
 
-        return entry;
+        return entity;
     }
 
     public async Task<IQueryable<StudentStatsOfDay>?> GetStudentStatsOfDaysByStudeyDayAsync(Guid studyDaysId)
     {
-        var entry = _context.StudentStatsOfDays.Where(e => e.StudyDayId == studyDaysId);
+        var entity = _context.StudentStatsOfDays.Where(e => e.StudyDayId == studyDaysId);
 
-        return entry;
+        return entity;
     }
 
     public async Task<StudentStatsOfDay> UpdateStudentStatsOfDayAsync(StudentStatsOfDay studentStatsOfDay)
