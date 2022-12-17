@@ -11,6 +11,6 @@ namespace TalabalarJurnali.Data.Entities
         public Guid UserId { get; set; }
         [ForeignKey(nameof(UserId))]
         public virtual AppUser? AppUser { get; set; }
-        public virtual 
+        public virtual DateTime MarkDate { get; set; }
     }
 }
