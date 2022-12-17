@@ -1,8 +1,6 @@
-﻿namespace TalabalarJurnali.Data.Entities
+﻿namespace TalabalarJurnali.Data.Entities;
+public enum EGroupStatus
 {
-    public enum EGroupStatus
-    {
-        Active,
-        Finished
-    }
+    Active,
+    Finished
 }
