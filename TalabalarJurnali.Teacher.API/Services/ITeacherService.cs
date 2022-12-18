@@ -8,5 +8,5 @@ public interface ITeacherService
 {
     Task<TeacherDto> UpdateTeacherAsync(UpdateTeacherDto updateTeacher);
 
-    Task<StudentStatsOfDay> DefineStudentAttendance(Guid Id);
+    Task<StudentStatsOfDay> DefineStudentAttendance(Guid studentId, ELessonParticipatingStatus status);
 }
