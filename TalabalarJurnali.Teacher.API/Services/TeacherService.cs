@@ -15,7 +15,7 @@ public class TeacherService : ITeacherService
         _userRepository = userRepository;
     }
 
-    public Task<StudentStatsOfDays> DefineStudentAttendance(Guid Id)
+    public Task<StudentStatsOfDay> DefineStudentAttendance(Guid Id)
     {
         throw new NotImplementedException();
     }
