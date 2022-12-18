@@ -19,7 +19,7 @@ public class GroupService : IGroupService
         _accountRepository = accountRepository;
     }
 
-    public async Task<GroupDto?> CreateGroupAsync(CreateGroupDto createGroupDto)
+    public async Task<GroupDto> CreateGroupAsync(CreateGroupDto createGroupDto)
     {
         if (string.IsNullOrWhiteSpace(createGroupDto.Name))
             return null;
@@ -56,7 +56,7 @@ public class GroupService : IGroupService
         return groups.Select(group => group.Adapt<GroupDto>()).ToList();
     }
 
-    public async Task<GroupDto?> GetGroupByIdAsync(Guid id)
+    public async Task<GroupDto> GetGroupByIdAsync(Guid id)
     {
         var group = await _groupRepository.GetGroupByIdAsync(id);
         if(group is null)
@@ -65,13 +65,13 @@ public class GroupService : IGroupService
         return group.Adapt<GroupDto>();
     }
 
-    public async Task<GroupDto?> JoinGroupAsync(Guid userId, Guid groupId)
+    public async Task<GroupDto> JoinGroupAsync(JoinDto joinDto)
     {
-        var group = await _groupRepository.GetGroupByIdAsync(groupId);
+        var group = await _groupRepository.GetGroupByIdAsync(joinDto.GeroupId);
         if (group is null)
             return null;
 
-        var user = await _accountRepository.GetUserByIdAsync(userId);
+        var user =  await _accountRepository.GetUserByIdAsync(joinDto.UserId);
         if (group is null)
             return null;
 
