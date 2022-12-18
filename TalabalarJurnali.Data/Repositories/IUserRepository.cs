@@ -8,6 +8,7 @@ public interface IUserRepository
     Task<AppUser> GetUserByUserNameAsync(string username);
     Task<AppUser> GetUserByEmailAsync(string email);
     Task<List<AppUser>> GetAllUserByRoleIdAsync(string role);
+    Task<List<AppUser>> GetAllUsers();
     Task<AppUser> UpdateUsetAsync(AppUser user);
     Task<AppUser> CreateUserAsync(AppUser user);
     Task DeleteUserAsync(AppUser user);

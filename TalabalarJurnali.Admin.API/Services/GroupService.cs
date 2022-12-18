@@ -86,7 +86,7 @@ public class GroupService : IGroupService
         if(group is null)
             return null;
 
-        group.Name = updateGroupDto.Name;
+        group.Name = updateGroupDto.Name ?? group.Name;
         group.StartDate = updateGroupDto.StatDate;
         group.EndDate = updateGroupDto.EndDate;
         group.Status = updateGroupDto.Status;

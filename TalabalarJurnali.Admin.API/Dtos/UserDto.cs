@@ -21,6 +21,5 @@ public class UserDto
     public string? ConfirmPassword { get; set; }
 
     public IFormFile? AvatarUrl { get; set; }
-
-    public AppUserRole AppUserRole { get; set; }
+    public ERole Role { get; set; }
 }
