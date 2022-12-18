@@ -1,31 +1,54 @@
-﻿using TalabalarJurnali.Data.Entities;
+﻿using System.Reflection.Metadata.Ecma335;
+using Microsoft.EntityFrameworkCore;
+using TalabalarJurnali.Data.Data;
+using TalabalarJurnali.Data.Entities;
 
 namespace TalabalarJurnali.Data.Repositories;
 public class StudyDayRepository : IStudyDayRepository
 {
-    public Task<List<StudyDay>> GetStudyDaysByGroupIdAsync(Guid groupId)
+    private readonly AppDbContext _context;
+
+    public StudyDayRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<StudyDay> GetStudyDayByIdAsync(Guid groupId, Guid studyDayId)
+    public async Task<List<StudyDay>> GetStudyDaysByGroupIdAsync(Guid groupId)
     {
-        throw new NotImplementedException();
+        var studyDayList = await _context.StudyDays.Where(s => s.GroupId == groupId).ToListAsync();
+
+        return studyDayList;
     }
 
-    public Task<StudyDay> CreateStudyDayAsync(Guid groupId, StudyDay studyDay)
+    public async Task<StudyDay> GetStudyDayByIdAsync(Guid groupId, Guid studyDayId)
     {
-        throw new NotImplementedException();
+        var studyDay = await _context.StudyDays.FirstOrDefaultAsync(s => s.Id == studyDayId && s.GroupId == groupId);
+
+        return studyDay;
     }
 
-    public Task<StudyDay> UpdateStudyDayAsync(Guid groupId, StudyDay studyDay)
+    public async Task<StudyDay> CreateStudyDayAsync(StudyDay studyDay)
     {
-        throw new NotImplementedException();
+        var entry = await _context.StudyDays.AddAsync(studyDay);
+
+        await _context.SaveChangesAsync();
+
+        return entry.Entity;
     }
 
-    public Task DeleteStudyDayAsync(Guid studyDayId)
+    public async Task<StudyDay> UpdateStudyDayAsync(StudyDay studyDay)
     {
-        throw new NotImplementedException();
+        var entry = _context.StudyDays.Update(studyDay);
+
+        await _context.SaveChangesAsync();
+
+        return entry.Entity;
+    }
+
+    public async Task DeleteStudyDayAsync(StudyDay studyDay)
+    {
+        _context.Remove(studyDay);
+
+        await _context.SaveChangesAsync();
     }
 }
-
