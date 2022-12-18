@@ -9,11 +9,11 @@ namespace TalabalarJurnali.Admin.API.Services;
 public class GroupService : IGroupService
 {
     private readonly IGroupRepository _groupRepository;
-    private readonly IAccountRepository _accountRepository;
+    private readonly IUserRepository _accountRepository;
 
     public GroupService(
         IGroupRepository groupRepository,
-        IAccountRepository accountRepository)
+        IUserRepository accountRepository)
     {
         _groupRepository = groupRepository;
         _accountRepository = accountRepository;

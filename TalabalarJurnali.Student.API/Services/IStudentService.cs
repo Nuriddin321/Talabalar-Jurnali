@@ -8,6 +8,6 @@ namespace TalabalarJurnali.Student.API.Services
     {
         Task<GroupDto> GetMyGroup(ClaimsPrincipal user);
         List<AppUser> GetGroupUsers(ClaimsPrincipal _user, ERole role);
-        Task<List<Mark>> GetStudentMarksForLastXdays(Guid id, ClaimsPrincipal user, uint x);
+        Task<List<Mark>> GetStudentMarksForLastXdays(Guid id, ClaimsPrincipal user, uint x, EMarkType markType);
     }
 }
