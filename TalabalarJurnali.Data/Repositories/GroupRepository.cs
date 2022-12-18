@@ -42,5 +42,12 @@ namespace TalabalarJurnali.Data.Repositories
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<Group>> GetAllGroups()
+        {
+            var entities = await _context.Groups.ToListAsync();
+
+            return entities;
+        }
     }
 }
