@@ -4,32 +4,40 @@ using TalabalarJurnali.Data.Entities;
 
 namespace TalabalarJurnali.Data.Repositories;
 
-public class AccountRepository : IAccountRepository
+public class UserRepository : IUserRepository
 {
     private readonly AppDbContext _context;
 
-    public AccountRepository(
+    public UserRepository(
         AppDbContext context)
     {
         _context = context;
     }
 
-    public async Task<List<AppUser>> GetAllAdminUsers()
+    public async Task<AppUser> CreateUserAsync(AppUser user)
     {
-        throw new NotImplementedException();
+        var createdUser = await _context.Users.AddAsync(user);
+
+        await _context.SaveChangesAsync();
+
+        return createdUser.Entity;
     }
 
-    public Task<List<AppUser>> GetAllStudentUsers()
+    public async Task DeleteUserAsync(AppUser user)
     {
-        throw new NotImplementedException();
+        _context.Users.Remove(user);
+
+        await _context.SaveChangesAsync();
     }
 
-    public Task<List<AppUser>> GetAllTeacherUsers()
+    public async Task<List<AppUser>> GetAllUserByRoleIdAsync(string role)
     {
-        throw new NotImplementedException();
+        var user = _context.Users.Where(user => user.UserRole.ToString() == role).ToList();
+
+        return user;
     }
 
-    public async Task<AppUser> GetUserByEmail(string email)
+    public async Task<AppUser> GetUserByEmailAsync(string email)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == email);
 
@@ -43,14 +51,14 @@ public class AccountRepository : IAccountRepository
         return user;
     }
 
-    public async Task<AppUser?> GetUserByUserName(string username)
+    public async Task<AppUser> GetUserByUserNameAsync(string username)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.UserName == username);
 
         return user;
     }
 
-    public async Task<AppUser> UpdateUset(AppUser user)
+    public async Task<AppUser> UpdateUsetAsync(AppUser user)
     {
         var updatedUser = _context.Users.Update(user);
 
