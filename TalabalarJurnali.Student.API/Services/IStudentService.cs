@@ -7,9 +7,7 @@ namespace TalabalarJurnali.Student.API.Services
     public interface IStudentService
     {
         Task<GroupDto> GetMyGroup(ClaimsPrincipal user);
-        Task<List<AppUser>> GetGroupUsers(ClaimsPrincipal user, AppUserRole role );
+        List<AppUser> GetGroupUsers(ClaimsPrincipal _user, ERole role);
         Task<List<Mark>> GetStudentMarksForLastXdays(Guid id, ClaimsPrincipal user, uint x);
-        Task<List<StudentStatsOfDay>> GetStudentsStatsForLastXdays(ClaimsPrincipal user, uint x);
-
     }
 }

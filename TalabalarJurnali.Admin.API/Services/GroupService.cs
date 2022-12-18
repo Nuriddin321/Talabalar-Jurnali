@@ -28,7 +28,7 @@ public class GroupService : IGroupService
         {
             Name = createGroupDto.Name,
             Status = EGroupStatus.Active,
-            StatDate = createGroupDto.StatDate,
+            StartDate = createGroupDto.StatDate,
             EndDate = createGroupDto.EndDate,
         };
 
@@ -87,7 +87,7 @@ public class GroupService : IGroupService
             return null;
 
         group.Name = updateGroupDto.Name;
-        group.StatDate = updateGroupDto.StatDate;
+        group.StartDate = updateGroupDto.StatDate;
         group.EndDate = updateGroupDto.EndDate;
         group.Status = updateGroupDto.Status;
 
