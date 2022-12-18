@@ -36,6 +36,13 @@ public class AccountRepository : IAccountRepository
         return user;
     }
 
+    public async Task<AppUser?> GetUserByIdAsync(Guid userId)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(user => user.Id == userId);
+
+        return user;
+    }
+
     public async Task<AppUser?> GetUserByUserName(string username)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.UserName == username);
