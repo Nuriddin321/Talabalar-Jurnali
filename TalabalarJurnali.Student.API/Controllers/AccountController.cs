@@ -33,10 +33,9 @@ namespace TalabalarJurnali.Student.API.Controllers
             [HttpPost("LogOut")]
             public async Task<IActionResult> LogOut()
             {
-
                 await _signInManager.SignOutAsync();
                 return Ok();
-;            }
+            }
 
      }
 }
