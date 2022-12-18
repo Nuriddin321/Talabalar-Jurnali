@@ -4,6 +4,7 @@ namespace TalabalarJurnali.Data.Repositories;
 
 public interface IAccountRepository
 {
+    Task<AppUser> GetUserByIdAsync(Guid userId);
     Task<AppUser> GetUserByUserName(string username);
     Task<AppUser> GetUserByEmail(string email);
     Task<List<AppUser>> GetAllAdminUsers(); 

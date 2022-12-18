@@ -11,8 +11,8 @@ using TalabalarJurnali.Data.Data;
 namespace TalabalarJurnali.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221218030204_Init")]
-    partial class Init
+    [Migration("20221218084150_UserRoleXMaxPro")]
+    partial class UserRoleXMaxPro
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,6 +112,13 @@ namespace TalabalarJurnali.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("78088c7d-1b91-4c44-9f77-bea2de6e7886"),
+                            RoleId = new Guid("416f8802-825c-44f4-bc45-3b225d6ed3b2")
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -208,6 +215,24 @@ namespace TalabalarJurnali.Data.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("78088c7d-1b91-4c44-9f77-bea2de6e7886"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "4b833634-e097-40e5-8576-f1d913d8262f",
+                            Email = "Abduqaxxarov04@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Abdulaziz",
+                            GroupId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            LastName = "Anduqaxxorov",
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEHa+ZxhSd5opRT2nH+ar1PSvyHiaMp2qDAHTSw7f7RLA/Pv1MPdpFE6QinMjge/IVw==",
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "admin.abdulaziz"
+                        });
                 });
 
             modelBuilder.Entity("TalabalarJurnali.Data.Entities.AppUserRole", b =>
@@ -239,21 +264,9 @@ namespace TalabalarJurnali.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e53e7818-2678-412d-97f9-d362ee04a3c6"),
-                            ConcurrencyStamp = "5b97df7c-ccbf-4ea8-9974-eb3d32785728",
+                            Id = new Guid("416f8802-825c-44f4-bc45-3b225d6ed3b2"),
+                            ConcurrencyStamp = "aadccdae-d06e-4c28-84e8-78b697fcee4e",
                             Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = new Guid("7757c5e4-10cf-44a2-8221-69a86834fb5e"),
-                            ConcurrencyStamp = "9bea3f6f-4447-4307-91e6-c1d9764d23bc",
-                            Name = "Teacher"
-                        },
-                        new
-                        {
-                            Id = new Guid("1b8ed8a2-206e-4898-b806-bb475b53af7d"),
-                            ConcurrencyStamp = "b8b7d679-6b9d-4488-81f2-02b930c74e0b",
-                            Name = "Student"
                         });
                 });
 
