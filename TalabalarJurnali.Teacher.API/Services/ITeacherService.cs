@@ -1,3 +1,4 @@
+using TalabalarJurnali.Data.Repositories;
 using TalabalarJurnali.Teacher.API.Dtos;
 
 namespace TalabalarJurnali.Teacher.API.Services;
@@ -5,6 +6,7 @@ namespace TalabalarJurnali.Teacher.API.Services;
 public interface ITeacherService
 {
     Task<TeacherDto> UpdateTeacherAsync(UpdateTeacherDto updateTeacher);
-    Task DeleteTeacherAsync(Guid id);
-    
+
+    Task<StudentStatsOfDays> DefineStudentAttendance(Guid Id);
+
 }
