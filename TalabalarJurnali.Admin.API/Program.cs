@@ -14,7 +14,7 @@ builder.Services.AddScoped<IMarkRepository, MarkRepository>();
 builder.Services.AddScoped<IStudentStatsOfDayRepository, StudentStatsOfDayRepository>();
 builder.Services.AddScoped<IStudyDayRepository, StudyDayRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserServcie, UserServcie>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
 
 builder.Services.AddAppDbContext(builder.Configuration);
@@ -29,6 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

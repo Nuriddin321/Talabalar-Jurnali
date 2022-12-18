@@ -6,12 +6,12 @@ using TalabalarJurnali.Data.Repositories;
 
 namespace TalabalarJurnali.Admin.API.Services;
 
-public class UserServcie : IUserServcie
+public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IFileHelper _fileHelper;
 
-    public UserServcie(
+    public UserService(
         IUserRepository userRepository,
         IFileHelper fileHelper)
     {
@@ -60,14 +60,23 @@ public class UserServcie : IUserServcie
         return true;
     }
 
-    public async Task<List<UserDto>> GetAllUsers()
+    public async Task<List<UserDto>> GetAllUsersAsync()
     {
         var users = await _userRepository.GetAllUsers();
 
         return users.Select(user => user.Adapt<UserDto>()).ToList();
     }
 
-    public async Task<List<UserDto>> GetUsersByRole(ERole eRole)
+    public async Task<UserDto?> GetUserByIdAsync(Guid id)
+    {
+        var user = await _userRepository.GetUserByIdAsync(id);
+        if (user is null)
+            return null;
+
+        return user.Adapt<UserDto>();
+    }
+   
+    public async Task<List<UserDto>> GetUsersByRoleAsync(ERole eRole)
     {
         var users = await _userRepository.GetAllUserByRoleIdAsync(eRole.ToString());
 

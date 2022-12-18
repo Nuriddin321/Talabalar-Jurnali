@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TalabalarJurnali.Admin.API.Dtos;
 using TalabalarJurnali.Admin.API.Services;
@@ -6,6 +7,7 @@ using TalabalarJurnali.Admin.API.Services;
 namespace TalabalarJurnali.Admin.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class GroupController : ControllerBase
 {
     private readonly IGroupService _groupService;
