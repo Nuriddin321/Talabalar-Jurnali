@@ -14,9 +14,11 @@ public class StudentStatsOfDays : IStudentStatsOfDays
         _context = context;
     }
 
-    public Task<IQueryable<StudentStatsOfDay>?> GetStudentStatsOfDayByStudyDayAsync(Guid studyDaysId)
+    public List<StudentStatsOfDay>? GetStudentStatsOfDayByStudyDayId(Guid studyDayId)
     {
-        throw new NotImplementedException();
+        var a =  _context.StudentStatsOfDays.Where(s => s.StudyDayId == studyDayId).ToList();
+
+        return a;
     }
 
     public async Task<StudentStatsOfDay?> CreateStudentStatsOfDayAsync(StudentStatsOfDay studentStatsOfDay)
