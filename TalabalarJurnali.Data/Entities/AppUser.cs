@@ -7,6 +7,7 @@ public class AppUser : IdentityUser<Guid>
 {
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
+    public string? AvatarUrl { get; set; }
     public Guid GroupId { get; set; }
     [ForeignKey(nameof(GroupId))]
     public virtual List<Group>? Group { get; set; }
