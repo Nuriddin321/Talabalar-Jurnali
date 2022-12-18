@@ -6,7 +6,9 @@ public class StudentStatsOfDay
 {
     public Guid Id { get; set; }
     public ELessonParticipatingStatus LessonParticipatingStatus { get; set; }
-    public uint? LatenessTime { get; set; }  
+    public uint? LatenessTime { get; set; }
+    public Guid StudentId { get; set; }
+    public virtual AppUser? Student { get; set; }
     public Guid StudyDayId { get; set; }
     [ForeignKey(nameof(StudyDayId))]
     public virtual StudyDay? StudyDay { get; set; }

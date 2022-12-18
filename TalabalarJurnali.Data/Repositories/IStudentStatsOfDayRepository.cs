@@ -2,7 +2,7 @@
 
 namespace TalabalarJurnali.Data.Repositories;
 
-public interface IStudentStatsOfDay
+public interface IStudentStatsOfDayRepository
 {
     Task<Entities.StudentStatsOfDay?> GetStudentStatsOfDayByStudyDayIdAsync(Guid studyDayId, Guid studentStatsOfDayId);
     List<Entities.StudentStatsOfDay>? GetStudentStatsOfDayByStudyDayId(Guid studyDayId);

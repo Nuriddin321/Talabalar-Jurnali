@@ -3,7 +3,7 @@ using TalabalarJurnali.Data.Entities;
 
 namespace TalabalarJurnali.Admin.API.Services;
 
-public interface IUserServcise
+public interface IUserService
 {
     Task<UserDto> CreateUserAsync(CreateUserDto createUser);
     Task<UserDto> UpdateUserAsync(Guid id, UpdateUserDto updateUser);

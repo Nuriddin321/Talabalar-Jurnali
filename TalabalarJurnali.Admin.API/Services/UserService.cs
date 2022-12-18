@@ -6,12 +6,12 @@ using TalabalarJurnali.Data.Repositories;
 
 namespace TalabalarJurnali.Admin.API.Services;
 
-public class UserServcise : IUserServcise
+public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IFileHelper _fileHelper;
 
-    public UserServcise(
+    public UserService(
         IUserRepository userRepository,
         IFileHelper fileHelper)
     {

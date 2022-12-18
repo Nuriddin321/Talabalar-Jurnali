@@ -9,10 +9,10 @@ namespace TalabalarJurnali.Admin.API.Controllers;
 [ApiController]
 public class UserController : ControllerBase
 {
-    private readonly IUserServcise _userServcie;
+    private readonly IUserService _userServcie;
 
     public UserController(
-        IUserServcise userServcise)
+        IUserService userServcise)
     {
         _userServcie = userServcise;
     }
