@@ -5,6 +5,7 @@ using TalabalarJurnali.Data.Entities;
 
 namespace TalabalarJurnali.Data.Repositories
 {
+    
     public class GroupRepository : IGroupRepository
     {
         private readonly AppDbContext _context;
