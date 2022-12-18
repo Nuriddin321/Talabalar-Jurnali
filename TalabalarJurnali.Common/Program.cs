@@ -1,3 +1,5 @@
+using TalabalarJurnali.Common.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
