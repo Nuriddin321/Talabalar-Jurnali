@@ -4,11 +4,11 @@ using TalabalarJurnali.Data.Entities;
 
 namespace TalabalarJurnali.Data.Repositories;
 
-public class StudentStatsOfDay : IStudentStatsOfDay
+public class StudentStatsOfDayRepository : IStudentStatsOfDayRepository
 {
     private readonly AppDbContext _context;
 
-    public StudentStatsOfDay(
+    public StudentStatsOfDayRepository(
         AppDbContext context)
     {
         _context = context;
