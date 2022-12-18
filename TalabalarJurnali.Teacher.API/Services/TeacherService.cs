@@ -1,3 +1,4 @@
+using TalabalarJurnali.Data.Repositories;
 using TalabalarJurnali.Teacher.API.Dtos;
 
 namespace TalabalarJurnali.Teacher.API.Services;
