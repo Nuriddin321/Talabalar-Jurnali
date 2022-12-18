@@ -9,5 +9,5 @@ public interface IGroupService
     Task<GroupDto> CreateGroupAsync(CreateGroupDto createGroupDto);
     Task<GroupDto> UpdateGroupAsync(Guid id, UpdateGroupDto updateGroupDto);
     Task<bool> DeleteGropAsync(Guid id);
-    Task<GroupDto> JoinGroupAsync(Guid userId, Guid groupId);
+    Task<GroupDto> JoinGroupAsync(JoinDto joinDto);
 }

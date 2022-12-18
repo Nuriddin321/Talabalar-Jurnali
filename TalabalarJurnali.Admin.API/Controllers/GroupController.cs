@@ -10,13 +10,12 @@ public class GroupController : ControllerBase
 {
     private readonly IGroupService _groupService;
 
-    public GroupController(
-        IGroupService groupService)
+    public GroupController(IGroupService groupService)
     {
         _groupService = groupService;
     }
 
-    [HttpGet("groups")]
+    [HttpGet]
     [ProducesResponseType(typeof(List<GroupDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll()
     {
@@ -25,7 +24,7 @@ public class GroupController : ControllerBase
         return Ok(groups);
     }
 
-    [HttpGet("groupId:Guid")]
+    [HttpGet("groupId")]
     [ProducesResponseType(typeof(GroupDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetById(Guid groupId)
     {
@@ -38,7 +37,7 @@ public class GroupController : ControllerBase
 
     [HttpPost("create")]
     [ProducesResponseType(typeof(GroupDto), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Create([FromForm] CreateGroupDto createGroupDto)
+    public async Task<IActionResult> Create([FromBody] CreateGroupDto createGroupDto)
     {
         var createdGroup = await _groupService.CreateGroupAsync(createGroupDto);
         if (createdGroup is null)
@@ -49,7 +48,7 @@ public class GroupController : ControllerBase
 
     [HttpPut("update/groupId")]
     [ProducesResponseType(typeof(GroupDto), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Update(Guid groupId, [FromForm] UpdateGroupDto UpdateGroupDto)
+    public async Task<IActionResult> Update(Guid groupId, [FromBody] UpdateGroupDto UpdateGroupDto)
     {
         var updatedGroup = await _groupService.UpdateGroupAsync(groupId, UpdateGroupDto);
         if (updatedGroup is null)
@@ -58,7 +57,7 @@ public class GroupController : ControllerBase
         return Ok(updatedGroup);
     }
 
-    [HttpGet("groupId:Guid")]
+    [HttpDelete("delete/groupId")]
     [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
     public async Task<IActionResult> Delete(Guid groupId)
     {
@@ -69,11 +68,11 @@ public class GroupController : ControllerBase
         return Ok();
     }
 
-    [HttpDelete("groupId:Guid, userId:Guid")]
+    [HttpPut("join")]
     [ProducesResponseType(typeof(GroupDto), StatusCodes.Status200OK)]
-    public async Task<IActionResult> JoinGroup(Guid groupId, Guid userId)
+    public async Task<IActionResult> JoinGroup([FromBody] JoinDto joinDto)
     {
-        var group = await _groupService.JoinGroupAsync(groupId, userId);
+        var group = await _groupService.JoinGroupAsync(joinDto);
         if (group is null)
             return BadRequest();
 
