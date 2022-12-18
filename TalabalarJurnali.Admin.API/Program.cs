@@ -1,5 +1,6 @@
 using TalabalarJurnali.Admin.API.Services;
 using TalabalarJurnali.Common.Extensions;
+using TalabalarJurnali.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFileHelper, FileHelper>();
+builder.Services.AddScoped<IGroupRepository, GroupRepository>();
+builder.Services.AddScoped<IMarkRepository, MarkRepository>();
+builder.Services.AddScoped<IStudentStatsOfDayRepository, StudentStatsOfDayRepository>();
+builder.Services.AddScoped<IStudyDayRepository, StudyDayRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserServcie, UserServcie>();
+builder.Services.AddScoped<IGroupService, GroupService>();
 
 builder.Services.AddAppDbContext(builder.Configuration);
 builder.Services.AddIdentityManagers();
