@@ -38,7 +38,7 @@ namespace TalabalarJurnali.Student.API.Services
             if (user is null)
                 return null;
 
-            var userMarks=  _context.Marks.Where(m => m.UserId == user.Id).Where(m => m.Type == markType ).ToList();
+            var userMarks = _context.Marks.Where(m => m.UserId == user.Id).Where(m => m.Type == markType).ToList();
             var orderedMarksByDate = userMarks.OrderBy(m => m.MarkDate).ToList();
             orderedMarksByDate.Reverse(0, orderedMarksByDate.Count);
 

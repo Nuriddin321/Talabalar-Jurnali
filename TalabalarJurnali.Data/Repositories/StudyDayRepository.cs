@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TalabalarJurnali.Data.Data;
 using TalabalarJurnali.Data.Entities;
 

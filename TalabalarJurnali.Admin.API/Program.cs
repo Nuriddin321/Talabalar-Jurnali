@@ -1,13 +1,16 @@
+using TalabalarJurnali.Admin.API.Services;
 using TalabalarJurnali.Common.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IFileHelper, FileHelper>();
+
 builder.Services.AddAppDbContext(builder.Configuration);
+builder.Services.AddIdentityManagers();
 
 var app = builder.Build();
 

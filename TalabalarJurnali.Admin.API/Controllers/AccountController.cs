@@ -1,4 +1,4 @@
-﻿using Mapster;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TalabalarJurnali.Admin.API.Dtos;
 using TalabalarJurnali.Admin.API.Services;
@@ -9,33 +9,31 @@ namespace TalabalarJurnali.Admin.API.Controllers;
 [ApiController]
 public class AccountController : ControllerBase
 {
-    private readonly IAccountService _accountService;
+    private readonly UserManager<AppUser> _userManager;
+    private readonly SignInManager<AppUser> _signInManager;
 
     public AccountController(
-        IAccountService accountService)
+        UserManager<AppUser> userManager,
+        SignInManager<AppUser> signInManager)
     {
-        _accountService = accountService;
+        _userManager = userManager;
+        _signInManager = signInManager;
     }
 
-    [HttpPost("Register")]
-    public async Task<IActionResult> Register([FromForm] Register regitserDto)
-    {
-        var user = await _accountService.RegisterAsync(regitserDto);
-
-        if (user is null)
-            return BadRequest();
-        
-        return Ok(user);
-    }
-
-    [HttpPost("Login")]
+    [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] Login loginDto)
     {
-        var user = await _accountService.LoginAsync(loginDto);
-
-        if (user is null)
+        var result = await _signInManager.PasswordSignInAsync(loginDto.UserName, loginDto.Password, true, true);
+        if (!result.Succeeded)
             return BadRequest();
 
-        return Ok(user);
+        return Ok();
+    }
+
+    [HttpPost("logout")]
+    public async Task<IActionResult> LogOut()
+    {
+        await _signInManager.SignOutAsync();
+        return Ok();
     }
 }
