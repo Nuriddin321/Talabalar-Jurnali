@@ -1,3 +1,4 @@
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TalabalarJurnali.Data.Data;
@@ -30,8 +31,13 @@ public class TeacherService : ITeacherService
         return TodaysStudentStats;
     }
 
-    public Task<TeacherDto> UpdateTeacherAsync(UpdateTeacherDto updateTeacher)
+    public async Task<UpdateTeacherDto> UpdateTeacherAsync(UpdateTeacherDto updateTeacher)
     {
-        throw new NotImplementedException();
+        var user =  await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == updateTeacher.Username);
+        user.UserName = updateTeacher.Username;
+        user.FirstName = updateTeacher.FirstName;
+        user.LastName = updateTeacher.LastName;
+        await _context.SaveChangesAsync();
+        return updateTeacher;
     }
 }
