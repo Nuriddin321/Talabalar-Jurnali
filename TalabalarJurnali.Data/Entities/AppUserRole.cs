@@ -2,4 +2,4 @@
 
 namespace TalabalarJurnali.Data.Entities;
 
-public class AppUserRole : IdentityRole<Guid> { } 
+public class AppUserRole : IdentityRole<Guid> { }
