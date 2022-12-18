@@ -13,9 +13,6 @@ namespace TalabalarJurnali.Student.API.Controllers
         private readonly AppDbContext _context;
 
         private readonly StudentService _studentService;
-        //Task<GroupDto> GetMyGroup(ClaimsPrincipal user);
-        //List<AppUser> GetGroupUsers(ClaimsPrincipal _user, ERole role);
-        //Task<List<Mark>> GetStudentMarksForLastXdays(Guid id, ClaimsPrincipal user, uint x);
 
         public StudentController(UserManager<AppUser> userManager, AppDbContext context, StudentService studentService)
         {
