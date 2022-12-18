@@ -11,6 +11,7 @@ public class TeacherService : ITeacherService
     {
         _userRepository = userRepository;
     }
+
     public Task DeleteTeacherAsync(Guid id)
     {
         throw new NotImplementedException();
