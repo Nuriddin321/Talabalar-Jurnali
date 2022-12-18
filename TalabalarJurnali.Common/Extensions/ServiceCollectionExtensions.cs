@@ -1,4 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// using System.Configuration;
+// using Microsoft.EntityFrameworkCore;
+// using Microsoft.Extensions.DependencyInjection;
+// using TalabalarJurnali.Data.Data;
+// using TalabalarJurnali.Data.Entities;
+ 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using TalabalarJurnali.Data.Data;
 using TalabalarJurnali.Data.Entities;
 
