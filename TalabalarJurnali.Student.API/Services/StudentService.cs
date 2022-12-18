@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using Mapster;
 using Microsoft.AspNetCore.Identity;
 using TalabalarJurnali.Data.Data;
@@ -33,13 +32,13 @@ namespace TalabalarJurnali.Student.API.Services
             return group.Users.Where(u => u.UserRole == role).ToList();
         }
 
-        public async Task<List<Mark>> GetStudentMarksForLastXdays(Guid id, ClaimsPrincipal _user, uint x)
+        public async Task<List<Mark>> GetStudentMarksForLastXdays(Guid id, ClaimsPrincipal _user, uint x, EMarkType markType)
         {
             var user = await _userManager.GetUserAsync(_user);
             if (user is null)
                 return null;
 
-            var userMarks=  _context.Marks.Where(m => m.UserId == user.Id).ToList();
+            var userMarks = _context.Marks.Where(m => m.UserId == user.Id).Where(m => m.Type == markType).ToList();
             var orderedMarksByDate = userMarks.OrderBy(m => m.MarkDate).ToList();
             orderedMarksByDate.Reverse(0, orderedMarksByDate.Count);
 
