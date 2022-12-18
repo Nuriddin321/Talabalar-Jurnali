@@ -11,10 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\TalabalarJurnali.Admin.API\TalabalarJurnali.Admin.API.csproj" />
     <ProjectReference Include="..\TalabalarJurnali.Common\TalabalarJurnali.Common.csproj" />
   </ItemGroup>
 
