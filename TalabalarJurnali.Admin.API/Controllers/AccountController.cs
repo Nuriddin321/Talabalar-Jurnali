@@ -30,7 +30,7 @@ public class AccountController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("logout")]
+    [HttpPost("logout")]
     public async Task<IActionResult> LogOut()
     {
         await _signInManager.SignOutAsync();
