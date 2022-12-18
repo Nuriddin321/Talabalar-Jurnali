@@ -29,7 +29,14 @@ public class AccountRepository : IAccountRepository
         throw new NotImplementedException();
     }
 
-    public async Task<AppUser> GetUserByEmail(string email)
+    public Task<List<AppUser>> GetAllUsers()
+    {
+        var user = _context.Users.ToListAsync();
+
+        return user;
+    }
+
+    public async Task<AppUser> GetUserByEmailAsync(string email)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == email);
 
